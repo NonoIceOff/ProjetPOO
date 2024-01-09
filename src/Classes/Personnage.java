@@ -1,3 +1,5 @@
+package Classes;
+
 public class Personnage {
     private String nom;
     private int pointsDeVie;
@@ -40,4 +42,5 @@ public class Personnage {
     public void defendre() {
         System.out.println("Défense !");
     }
+
 }
