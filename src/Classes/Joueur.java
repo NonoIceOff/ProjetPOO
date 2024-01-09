@@ -2,6 +2,10 @@ package Classes;
 
 public class Joueur extends Personnage {
 
+    private String nom;
+    private int pointsDeVie;
+    private int force;
+
     public Joueur(String nom, int pointsDeVie, int force) {
         super(nom, pointsDeVie, force);
     }
@@ -13,4 +17,8 @@ public class Joueur extends Personnage {
         System.out.println("Joueur Défense !");
     }
     public void PrendreObjet() {System.out.println("Objet utilisé");}
+
+    public void interagir(Personnage personnage) {
+        System.out.println(this.nom + " a interagi avec " + personnage.getNom() + ".");
+    }
 }
