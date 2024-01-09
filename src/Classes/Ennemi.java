@@ -18,6 +18,6 @@ public class Ennemi extends Personnage {
     }
 
     public void interagir(Personnage personnage) {
-        System.out.println(this.nom + " a interagi avec " + personnage.getNom() + ".");
+        super.interagir(personnage);
     }
 }

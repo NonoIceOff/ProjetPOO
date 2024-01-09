@@ -19,6 +19,6 @@ public class Joueur extends Personnage {
     public void PrendreObjet() {System.out.println("Objet utilisé");}
 
     public void interagir(Personnage personnage) {
-        System.out.println(this.nom + " a interagi avec " + personnage.getNom() + ".");
+        super.interagir(personnage);
     }
 }

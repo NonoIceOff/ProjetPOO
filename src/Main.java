@@ -1,13 +1,13 @@
-import Classes.Arme;
-import Classes.Personnage;
-import Classes.Potion;
+import Classes.*;
 
 public class Main {
     public static void main(String[] args) {
         Potion potionGuerison = new Potion("Potion de guérison", 20);
         Arme cuillere = new Arme("Cuillère", 20);
 
-        Personnage joueur = new Personnage("Héros", 50,1);
+        Personnage joueur = new Joueur("Héros", 50,1);
+
+        Ennemi ennemi = new Ennemi("Jsp",50,1);
 
         joueur.informations();
 
@@ -18,5 +18,8 @@ public class Main {
         cuillere.interagir(joueur);
 
         joueur.informations();
+
+        ennemi.interagir(joueur);
+        joueur.interagir(ennemi);
     }
 }
