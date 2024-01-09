@@ -43,4 +43,17 @@ public class Personnage {
         System.out.println("Défense !");
     }
 
+    public void interagir(Personnage personnage) {
+        System.out.println(this.nom + " a interagi avec " + personnage.getNom() + ".");
+    }
+
+    public void changerPointsDeVie(int points) {
+        pointsDeVie += points;
+    }
+
+    public void informations() {
+        System.out.println(this.getNom()+" a "+this.getPointsDeVie()+" points de vie, "+this.force+" de force.");
+    }
+
 }
+
