@@ -2,6 +2,10 @@ package Classes;
 
 public class Ennemi extends Personnage {
 
+    private String nom;
+    private int pointsDeVie;
+    private int force;
+
     public Ennemi(String nom, int pointsDeVie, int force) {
         super(nom, pointsDeVie, force);
     }
@@ -11,5 +15,9 @@ public class Ennemi extends Personnage {
 
     public void defendre() {
         System.out.println("Ennemi Défend !");
+    }
+
+    public void interagir(Personnage personnage) {
+        System.out.println(this.nom + " a interagi avec " + personnage.getNom() + ".");
     }
 }
