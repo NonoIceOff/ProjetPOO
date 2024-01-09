@@ -21,5 +21,7 @@ public class Main {
 
         ennemi.interagir(joueur);
         joueur.interagir(ennemi);
+
+        joueur.attaquer();
     }
 }

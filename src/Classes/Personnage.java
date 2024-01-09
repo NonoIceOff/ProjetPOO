@@ -36,11 +36,19 @@ public class Personnage {
     }
 
     public void attaquer() {
-        System.out.println("Attaque !");
+        System.out.println(this.nom + " Attaque !");
+    }
+
+    public void attaquer(Ennemi ennemi) {
+        System.out.println(this.nom + " attaque l'ennemi " + ennemi.getNom() + ".");
+    }
+
+    public void attaquer(Joueur joueur) {
+        System.out.println(this.nom + " attaque le joueur " + joueur.getNom() + ".");
     }
 
     public void defendre() {
-        System.out.println("Défense !");
+        System.out.println(this.nom + " se défend !");
     }
 
     public void interagir(Personnage personnage) {
