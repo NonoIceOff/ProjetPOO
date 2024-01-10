@@ -7,6 +7,7 @@ public class PotionDeDegat extends ObjetDuJeu implements Interactuable {
         this.pointsDeDegat = pointsDeDegat;
     }
 
+    // Méthode d'interaction avec un personnage (implémentation de l'interface Interactuable)
     @Override
     public void interagir(Personnage personnage) {
         personnage.changerPointsDeVie(-pointsDeDegat);

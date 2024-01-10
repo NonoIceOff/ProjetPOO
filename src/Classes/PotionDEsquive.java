@@ -7,6 +7,7 @@ public class PotionDEsquive extends ObjetDuJeu implements Interactuable {
         this.pointsDEsquive = pointsDeSoin;
     }
 
+    // Méthode d'interaction avec un personnage (implémentation de l'interface Interactuable)
     @Override
     public void interagir(Personnage personnage) {
         personnage.changerPointsDEsquive(pointsDEsquive);
