@@ -2,12 +2,15 @@ import Classes.*;
 
 public class Main {
     public static void main(String[] args) {
-        Potion potionGuerison = new Potion("Potion de guérison", 20);
-        Arme cuillere = new Arme("Cuillère", 20);
+        PotionDeSoin potionGuerison = new PotionDeSoin("Potion de guérison", 20);
 
-        Personnage joueur = new Joueur("Héros", 50,1);
+        Arme cuillere = new Arme("Cuillère rouillée", 2, 0);
+        Arme couteau = new Arme("Couteau", 20, 0);
+        Arme couteauSang = new Arme("Couteau ensanglanté", 21, 0);
 
-        Ennemi ennemi = new Ennemi("Jsp",50,1);
+        Personnage joueur = new Joueur("Héros", 50,0,1);
+
+        Ennemi ennemi = new Ennemi("Antoine Daniel",50,0,1);
 
         joueur.informations();
 
@@ -16,6 +19,8 @@ public class Main {
         joueur.informations();
 
         cuillere.interagir(joueur);
+
+        couteau.interagir(joueur);
 
         joueur.informations();
 

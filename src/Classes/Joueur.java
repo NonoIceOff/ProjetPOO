@@ -2,12 +2,9 @@ package Classes;
 
 public class Joueur extends Personnage {
 
-    private String nom;
-    private int pointsDeVie;
-    private int force;
 
-    public Joueur(String nom, int pointsDeVie, int force) {
-        super(nom, pointsDeVie, force);
+    public Joueur(String nom, int pointsDeVie, int pointsDEsquive, int force) {
+        super(nom, pointsDeVie, pointsDEsquive, force);
     }
     @Override
     public void attaquer() {
@@ -15,22 +12,24 @@ public class Joueur extends Personnage {
     }
 
     public void attaquer(Ennemi ennemi) {
-        System.out.println(this.nom+" attaque l'ennemi " + ennemi.getNom() + ".");
+        System.out.println("Le joueur "+this.nom+" attaque l'ennemi " + ennemi.getNom() + ".");
     }
 
     public void attaquer(Joueur joueur) {
-        System.out.println(this.nom+" attaque le joueur " + joueur.getNom() + ".");
+        System.out.println("Le joueur "+this.nom+" attaque le joueur " + joueur.getNom() + ".");
     }
 
     @Override
     public void defendre() {
-        System.out.println(this.nom+" se défend !");
+        System.out.println("Le joueur "+this.nom+" se défend !");
     }
 
-    public void PrendreObjet() {System.out.println("Objet utilisé");}
+    public void PrendreObjet() {
+        System.out.println("Objet utilisé");
+    }
 
     @Override
     public void interagir(Personnage personnage) {
-        super.interagir(personnage);
+        System.out.println("Le joueur "+this.nom + " a interagi avec " + personnage.getNom() + ".");
     }
 }

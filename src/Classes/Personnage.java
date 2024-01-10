@@ -1,13 +1,15 @@
 package Classes;
 
 public class Personnage {
-    private String nom;
-    private int pointsDeVie;
-    private int force;
+    protected String nom;
+    protected int pointsDeVie;
+    protected int pointsDEsquive;
+    protected int force;
 
-    public Personnage(String nom, int pointsDeVie, int force) {
+    public Personnage(String nom, int pointsDeVie, int pointsDEsquive, int force) {
         this.nom = nom;
         this.pointsDeVie = pointsDeVie;
+        this.pointsDEsquive = pointsDEsquive;
         this.force = force;
     }
 
@@ -48,15 +50,19 @@ public class Personnage {
     }
 
     public void defendre() {
-        System.out.println(this.nom + " se défend !");
+        System.out.println("Certains se défendent !");
     }
 
     public void interagir(Personnage personnage) {
-        System.out.println(this.nom + " a interagi avec " + personnage.getNom() + ".");
+        System.out.println("Quelqu'un a interagi avec " + personnage.getNom() + ".");
     }
 
     public void changerPointsDeVie(int points) {
         pointsDeVie += points;
+    }
+
+    public void changerPointsDEsquive(int points) {
+        pointsDEsquive += points;
     }
 
     public void informations() {
