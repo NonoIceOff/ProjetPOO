@@ -1,14 +1,20 @@
 package Classes;
 
 public class Personnage {
-    private String nom;
-    private int pointsDeVie;
-    private int force;
+    protected String nom;
+    protected int pointsDeVie;
+    protected int force;
+    protected int agility;
+    protected int mana;
+    protected String manaSpe;
 
-    public Personnage(String nom, int pointsDeVie, int force) {
+    public Personnage(String nom, int pointsDeVie, int force, int agility, int mana, String manaSpe) {
         this.nom = nom;
         this.pointsDeVie = pointsDeVie;
         this.force = force;
+        this.agility = agility;
+        this.mana = mana;
+        this.manaSpe = manaSpe;
     }
 
     public String getNom() {
@@ -52,8 +58,8 @@ public class Personnage {
     }
 
     public void informations() {
-        System.out.println(this.getNom()+" a "+this.getPointsDeVie()+" points de vie, "+this.force+" de force.");
+        System.out.println(
+                this.getNom() + " a " + this.getPointsDeVie() + " points de vie, " + this.force + " de force.");
     }
 
 }
-
