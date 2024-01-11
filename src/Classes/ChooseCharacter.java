@@ -3,8 +3,7 @@ package Classes;
 import java.util.Scanner;
 
 public class ChooseCharacter {
-    // public String user;m
-String dragon =
+String kirby =
                 "                                '::,.\n" +
                 "                                ;kOOOkkl\n" +
                 "                     .',;;;,'. ;OO00OOkk:\n" +
@@ -29,7 +28,7 @@ String dragon =
                 "                               ''''''''.\n";
 
                
-                String dragonAndHelloArt =
+                String carte =
                 "                ..','.\n" +
                 "              .;okOkocOk,\n" +
                 "            .ldolodx0,oxX'ooo::\n" +
@@ -75,9 +74,11 @@ String dragon =
             "    \\_______/    / \n" +
             "      \\_____/_.'  ";
 
-    Joueur character1 = new Joueur("salameche", 10000, 2000, dragon, 10000, 100, "souffle ardent");
-    Joueur character2 = new Joueur("Ronflex", 1500, 2000, dragonAndHelloArt, 20, 10, "ronflement");
+    Joueur character1 = new Joueur("Kirby", 10000, 2000, kirby, 10000, 100, "souffle ardent");
+    Joueur character2 = new Joueur("Carte", 1500, 2000, carte, 20, 10, "ronflement");
     Joueur character3 = new Joueur("Ronflex", 1500, 2000, ronflex, 20, 10, "ronflement");
+
+
     String informations = "╔══════════════════════════════╗\n" + //
             "║  Informations                ║\n" +
             "║                              ║\n" +
@@ -103,18 +104,18 @@ String dragon =
 
     public void chooseStarter() {
         Game myGame = new Game();
-        System.out.println("Choose:");
+        System.out.println("Choississez un personnage:");
         Scanner scannerChoose = new Scanner(System.in);
         int chooseStarterUser = scannerChoose.nextInt();
         if (chooseStarterUser == 1) {
             System.out.println("Lancement du jeu...");
-            myGame.showCharacter(this.dragon, character1.getPointsDeVie());
+            myGame.showCharacter(this.kirby, character1.getPointsDeVie(), character1.getNom());
         } else if (chooseStarterUser == 2) {
              System.out.println("Lancement du jeu...");
-            myGame.showCharacter(this.dragonAndHelloArt, character2.getPointsDeVie());
+            myGame.showCharacter(this.carte, character2.getPointsDeVie(), character2.getNom());
         } else {
             System.out.println("Lancement du jeu...");
-            myGame.showCharacter(this.ronflex, character3.getPointsDeVie());
+            myGame.showCharacter(this.ronflex, character3.getPointsDeVie(), character3.getNom());
         }
     }
 }

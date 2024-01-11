@@ -49,28 +49,28 @@ public class Game {
                         String bossCharacter2 =
                         "''  .             \n" +
                         " "     +             
-                        "   .col;dl;.          ....,.      "  +    
-                        " .,lOOO0kOkd.  .....',;'':::,   "    +   
-                        " .,OOkdc. ;oxc  .clooocodo::::.   "   +   
-                        " .cO, 'c;       ok;:ll;odd0O;:.    "   +  
-                        " .Oc   ,:'      ol,:c:.codXKo;   .  "   + 
-                        " ..     ,;.     lc........;xOxxkO0k   "  +
-                        "      .,,.codl....',;;::cxxkkkxO0k   " +
-                        "     ,.:xOK0Od'cllloooooodcc:::ckkK.  "+
-                        "  oxddoOK000k'ooooooooookl::::ccOXK. "+
-                        "  .oooodKK0.  ooooooooookkc ooooo0XX,"+
-                        "   ;    c:.   ooooooooookOl  cooooOX."+
-                        "            ooooooooookOl   ,ddd:  "+
-                        "            ccccc::clodl;          "+
-                        "           ;,,',:::cc:;.          "+
-                        "              .lllll;;;           "+
-                        "      'ddooo;','        "   +
-                        "    :kxxxx:....;;         "+
-                        "   l0OOOOc....':x      "   +
-                        "   l00000d...           "   +
-                        "   ckO000k;'.          "     +
-                        "    ..... .;;.       "        +
-                        "            ';  ";
+                        "   .col;dl;.          ....,.      \n"  +    
+                        " .,lOOO0kOkd.  .....',;'':::,   \n"    +   
+                        " .,OOkdc. ;oxc  .clooocodo::::.   \n"   +   
+                        " .cO, 'c;       ok;:ll;odd0O;:.    \n"   +  
+                        " .Oc   ,:'      ol,:c:.codXKo;   .  \n"   + 
+                        " ..     ,;.     lc........;xOxxkO0k   \n"  +
+                        "      .,,.codl....',;;::cxxkkkxO0k   \n" +
+                        "     ,.:xOK0Od'cllloooooodcc:::ckkK.  \n"+
+                        "  oxddoOK000k'ooooooooookl::::ccOXK. \n"+
+                        "  .oooodKK0.  ooooooooookkc ooooo0XX,\n"+
+                        "   ;    c:.   ooooooooookOl  cooooOX.\n"+
+                        "            ooooooooookOl   ,ddd:  \n"+
+                        "            ccccc::clodl;          \n"+
+                        "           ;,,',:::cc:;.          \n"+
+                        "              .lllll;;;           \n"+
+                        "      'ddooo;','        \n"   +
+                        "    :kxxxx:....;;         \n"+
+                        "   l0OOOOc....':x      \n"   +
+                        "   l00000d...           \n"   +
+                        "   ckO000k;'.          \n"     +
+                        "    ..... .;;.       \n"        +
+                        "            ';  \n";
                         String bossCharacter3 =
                         " ..':;;;;'..              \n" +
                         "                         ..  ';:::::;;;;;,'.            \n" +
@@ -96,30 +96,21 @@ public class Game {
                         "                    ....   ..      ..''''.....          \n" +
                         "                                        ..........     \n" +
                         "                                           ......  ";
-        int value = 3000;
-        List<String> listBossAsciiArt = new ArrayList<String>();
         List<Boss> listBossHp = new ArrayList<Boss>();
         // création des boss
-        Boss myBoss = new Boss("Salamèche", 2000, value, 500, 5000, "Souffle ardent du dragon sacrée",
+        Boss myBoss = new Boss("Salamèche", 2000, 200, 500, 5000, "Souffle ardent du dragon sacrée",
                         "mange tes morts", bossCharacter);
 
         Boss myBoss2 = new Boss("SteveJobs", 1000, 500, 500, 700, "Control mental", "jsp", bossCharacter1);
         Boss myBoss3 = new Boss("Steve", 10000, 500, 500, 700, "Coup de pioche", "super coup de pioche", bossCharacter2);
         Boss myBoss4 = new Boss("TorTank", 1, 500, 500, 700, "Griffes", "Coup de tete", bossCharacter3);
 
-        // List<String> listEnnemies = new ArrayList<String>();Ò
 
         public void addBoss() {
-                // mettre encapsulation
                 listBossHp.add(myBoss);
                 listBossHp.add(myBoss2);
                 listBossHp.add(myBoss3);
                 listBossHp.add(myBoss4);
-                listBossAsciiArt.add(myBoss.boss2);
-                listBossAsciiArt.add(myBoss2.boss2);
-                listBossAsciiArt.add(myBoss3.boss2);
-                listBossAsciiArt.add(myBoss4.boss2);
-
         }
 
         Random rand = new Random();
@@ -127,16 +118,17 @@ public class Game {
 
         ChooseCharacter user = new ChooseCharacter();
 
-        public void showCharacter(String perso, int hpUser) {
+        public void showCharacter(String perso, int hpUser, String name) {
                 while (!isFinished) {
+                System.out.flush();
 
-                        System.out.println(
+                        System.out.println(name+"\n"+ hpUser +
                                         perso + "\n1 - Dormir: 200 degats | 2 - Coup de pate: 400 degats \n 3 - Inventaire | 4 - Fuir");
                         addBoss();
                         System.out.println();
-                        System.out.println("hp boss:" + " " + listBossHp.get(randomBoss) +
+                        System.out.println("Nom:"+ " " + listBossHp.get(randomBoss).nom  +"\nhp boss:" + " " + listBossHp.get(randomBoss).pointsDeVie +
                                         "\n"
-                                        + listBossAsciiArt.get(randomBoss));
+                                        + listBossHp.get(randomBoss).boss2);
 
                         Scanner scanner3 = new Scanner(System.in);
                         int chooseAttack = scanner3.nextInt();
