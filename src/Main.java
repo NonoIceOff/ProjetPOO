@@ -1,32 +1,33 @@
+
 import Classes.Arme;
 import Classes.Potion;
 import Classes.Menu;
 
+import Classes.*;
+
+import java.util.ArrayList;
+
 public class Main {
+
     public static void main(String[] args) {
 
         // menu du jeu
         Menu myMenu = new Menu();
         myMenu.chooseMode();
 
-        // // création des boss
-        // Boss myBoss = new Boss("Salamèche", 2000, 3000, 500, 5000, "Souffle ardent du
-        // dragon sacrée",
-        // "mange tes morts");
-
-        // Boss myBoss2 = new Boss("TorTank", 100, 500, 500, 700, "Jet d'eau", "Grand
-        // jet d'eau");
-
-        // // List<String> listEnnemies = new ArrayList<String>();Ò
-        // List<Boss> listBoss = new ArrayList<Boss>();
-
-        // listBoss.add(myBoss);
-        // listBoss.add(myBoss2);
-
         Potion potionGuerison = new Potion("Potion de guérison", 20);
         Arme cuillere = new Arme("Cuillère", 20);
 
-        // Personnage joueur = new Personnage("Héros", 50, 1, );
+
+        PotionDeSoin potionGuerison = new PotionDeSoin("Potion de guérison", 20);
+
+        Arme cuillere = new Arme("Cuillère rouillée", 2, 0);
+        Arme couteau = new Arme("Couteau", 20, 0);
+        Arme couteauSang = new Arme("Couteau ensanglanté", 21, 0);
+
+        Personnage joueur = new Joueur("Héros", 50,0,1);
+
+        Ennemi ennemi = new Ennemi("Antoine Daniel",50,0,1);
 
         // joueur.informations();
 
@@ -37,29 +38,41 @@ public class Main {
         // cuillere.interagir(joueur);
 
         // joueur.informations();
+
+
+        couteau.interagir(joueur);
+
+        joueur.informations();
+
+        ennemi.interagir(joueur);
+        joueur.interagir(ennemi);
+
+        joueur.attaquer();
+
+        // Faire une liste pour ensuite le sauvegarder sur le fs (remplacer le Int par le type de classe)
+        ArrayList<Integer> liste = new ArrayList<>();
+        liste.add(1);
+        liste.add(2);
+        liste.add(3);
+        liste.add(4);
+
+        FileSaver fs = new FileSaver("save.txt");
+        fs.save(liste);
+        fs.load();
+
+        Produit prod = new Produit("cuillère",10);
+        Produit prod2 = new Produit("cuillère2",10);
+        Inventaire inv = new Inventaire();
+        inv.ajouterProduit(prod);
+        inv.ajouterProduit(prod2);
+        inv.afficherInventaire();
+        System.out.println(inv.verifierProduit("cuillère",10));
+
+        FileSaver fsInv = new FileSaver("inv.txt");
+        fsInv.save(inv.getProduits());
+        fsInv.load();
+
     }
+
+
 }
-
-// level
-// normal
-// impossible
-// String dragon =
-// ANSI_RED + " ----------------------- \n" +
-// " \\ / \\ //\\\n" +
-// " \\ |\\___/| / \\// \\\\\n" +
-// " /0 0 \\__ / // | \\ \\ \n" +
-// " / / \\/_/ // | \\ \\ \n" +
-// " @_^_@'/ \\/_ // | \\ \\\n" +
-// " //_^_/ \\/_ // | \\ \\\n" +
-// " ( //) | \\/// | \\ \\\n" +
-// " ( / /) _|_ / ) // | \\ _\\\n" +
-// " ( // /) '/,_ _ _/ ( ; -. | _ _\\.-~ .-~~~^-.\n" +
-// " (( / / )) ,-{ _ `-.|.-~-. .~ `.\n" +
-// " (( // / )) '/\\ / ~-. _ .-~ .-~^-. \\\n" +
-// " (( /// )) `. { } / \\ \\\n" +
-// " (( / )) .----~-./ \\-' .~ \\ `. \\^-.\n" +
-// " ///.----..> \\ _ -~ `. ^-` ^-_\n" +
-// " ///-._ _ _ _ _ _ _}^ - - - - ~ ~-- ,.-~\n" +
-// " /.-~" + ANSI_RESET;
-
-// System.out.println(dragon);
