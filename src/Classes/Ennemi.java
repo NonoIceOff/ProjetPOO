@@ -6,8 +6,8 @@ import java.util.List;
 public class Ennemi extends Personnage {
 
     private String nom;
-    private int pointsDeVie;
-    private int force;
+    int pointsDeVie;
+    int force;
 
     public Ennemi(String nom, int pointsDeVie, int force, int agility, int mana, String manaSpe) {
         super(nom, pointsDeVie, force, agility, mana, manaSpe);

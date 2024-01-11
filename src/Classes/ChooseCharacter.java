@@ -1,9 +1,6 @@
 package Classes;
 
 import java.util.Scanner;
-import java.util.concurrent.Future;
-
-import Classes.Joueur;
 
 public class ChooseCharacter {
     // public String user;m

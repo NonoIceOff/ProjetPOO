@@ -1,20 +1,32 @@
 import Classes.Arme;
-import Classes.Personnage;
 import Classes.Potion;
-import Classes.Shop;
-import Classes.ChooseCharacter;
 import Classes.Menu;
+import Classes.Boss;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> listEnnemies = new ArrayList<String>();
-        List<String> listBoss = new ArrayList<String>();
+
+        // menu du jeu
         Menu myMenu = new Menu();
         myMenu.chooseMode();
+
+        // // création des boss
+        // Boss myBoss = new Boss("Salamèche", 2000, 3000, 500, 5000, "Souffle ardent du
+        // dragon sacrée",
+        // "mange tes morts");
+
+        // Boss myBoss2 = new Boss("TorTank", 100, 500, 500, 700, "Jet d'eau", "Grand
+        // jet d'eau");
+
+        // // List<String> listEnnemies = new ArrayList<String>();Ò
+        // List<Boss> listBoss = new ArrayList<Boss>();
+
+        // listBoss.add(myBoss);
+        // listBoss.add(myBoss2);
+
         Potion potionGuerison = new Potion("Potion de guérison", 20);
         Arme cuillere = new Arme("Cuillère", 20);
 
