@@ -100,11 +100,11 @@ public class Game {
         List<String> listAttackBoss = new ArrayList<String>();
 
         // création des boss
-        Boss myBoss = new Boss("Salamèche", 200, 200, 500, 5000, "Souffle ardent du dragon sacrée",
+        Boss myBoss = new Boss("Salamèche", 400, 200, 500, 5000, "Souffle ardent du dragon sacrée",
                         "mange tes morts", bossCharacter);
-        Boss myBoss2 = new Boss("SteveJobs", 200, 500, 500, 700, "Control mental", "jsp", bossCharacter1);
-        Boss myBoss3 = new Boss("Steve", 200, 500, 500, 700, "Coup de pioche", "super coup de pioche", bossCharacter2);
-        Boss myBoss4 = new Boss("TorTank", 200, 500, 500, 700, "Griffes", "Coup de tete", bossCharacter3);
+        Boss myBoss2 = new Boss("SteveJobs", 400, 500, 500, 700, "Control mental", "jsp", bossCharacter1);
+        Boss myBoss3 = new Boss("Steve", 400, 500, 500, 700, "Coup de pioche", "super coup de pioche", bossCharacter2);
+        Boss myBoss4 = new Boss("TorTank", 400, 500, 500, 700, "Griffes", "Coup de tete", bossCharacter3);
 
 
         public void addBoss() {
@@ -112,12 +112,10 @@ public class Game {
                 listBossHp.add(myBoss2);
                 listBossHp.add(myBoss3); 
                 listBossHp.add(myBoss4);
-                System.out.println(listBossHp);
         }
         public void addAttackBoss() {
                 listAttackBoss.add(listBossHp.get(randomBoss).manaSpe);
                 listAttackBoss.add(listBossHp.get(randomBoss).superSpe);
-                System.out.println(listAttackBoss);
         }
         Random rand = new Random();
         int randomBoss = (int) (Math.random() * 3);
@@ -150,9 +148,17 @@ public class Game {
 
                 while (!isFinished) {
                 System.out.flush();
-                        System.out.println("Nom:"+ " " + name +"\n"+"Vos hp:"+ " "  + hpUser +" "+
-                                        perso + "\n1 - Dormir: 200 degats | 2 - Coup de pate: 400 degats \n 3 - Inventaire | 4 - Fuir");
-                        System.out.println("Nom:"+ " " + listBossHp.get(randomBoss).nom  +"\nhp boss:" + " " + addHpUser() +
+                        String attackTab =   "╔══════════════════════════════╗\n" + 
+                                                                "║1 - Dormir: 200 degats        ║\n" +
+                                                                "║2 - Coup de pate: 400 degats  ║\n" +
+                                                                "║3 - Inventaire                ║\n" +
+                                                                "║4 - Fuir                      ║\n" +
+                                                                "╚══════════════════════════════╝";    
+                        System.out.println("Nom:"+ " " + Colors.ANSI_BLUE + name + Colors.ANSI_RESET +"\n"+"Vos hp:"+ " "  + Colors.ANSI_GREEN + hpUser + Colors.ANSI_RESET + " "+
+                                        perso + attackTab + "\n" );
+                                
+
+                        System.out.println("Nom:"+ " " +Colors.ANSI_RED + listBossHp.get(randomBoss).nom + Colors.ANSI_RESET + "\nhp boss:" + " " + addHpUser() +
                                         "\n"
                                         + listBossHp.get(randomBoss).boss2);
                         Scanner scanner3 = new Scanner(System.in);
@@ -160,10 +166,7 @@ public class Game {
                         switch (chooseAttack) {
                                 case 1:
                                 System.out.println(name + " " + "utilise" + " " + attackUser);
-
                                 addHpUser();
-                                // degatsennemies = degatsUserToEnnemie;
-                                // addHpUser(degatsennemies);
                                         break;
                                 case 2:
                                 System.out.println(name + " " + "utilise" + " " + secondAttackUser);
@@ -175,32 +178,35 @@ public class Game {
                                         break;
                                 default:
                                         break;
-                        }System.out.println(listBossHp.get(randomBoss).pointsDeVie);
+                        }
                         // attack du boss
                         System.out.println("Le boss lance" + " " +  listAttackBoss.get(randomBoss) + "\n" );
-                        System.out.println(listBossHp.get(randomBoss).pointsDeVie);
                         for (int i = 0; i <= 100; i++) {
                         int valueDegatsUser = 0;
                         valueDegatsUser = hpUser--;
                         }
-                         
-                        System.out.println("sokrf");
                         if (hpUser == 0 ||hpUser < 0) {
                                 System.out.println("vous avez perdu ");
                                 isFinished = true;
                                 Menu myMenu = new Menu();
                                 myMenu.chooseMode();
-                        }else if (addHpUser() == 0 || addHpUser() <0) {
-                        System.out.println("vous avez gagné");
-
+                        }else if (listBossHp.get(randomBoss).pointsDeVie == 0 || listBossHp.get(randomBoss).pointsDeVie <0) {
+                                isFinished = true;
+                                System.out.println("vous avez gagné \nvoulez vous continuer ?");
+                                Scanner scanner4 = new Scanner(System.in);
+                                String again = scanner4.nextLine();
+                                if (again ==  "oui") {
+                                        
+                                }else{
+                                Menu myMenu = new Menu();
+                                myMenu.chooseMode();
+                                }
                         }
-                        
-                       
-                       
-
-
                 }
-                // regardec le java morpion
+        }
+
+        public void boucleOfGame(){
+                
         }
 
 }
