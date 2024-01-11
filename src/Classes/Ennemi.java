@@ -1,19 +1,16 @@
 package Classes;
 
+
+
 public class Ennemi extends Personnage {
 
-    public Ennemi(String nom, int pointsDeVie, int pointsDEsquive, int force) {
-        super(nom, pointsDeVie, pointsDEsquive, force);
-    }
-    // Méthode d'attaque spécifique pour attaquer un joueur
-    public void attaquer(Joueur joueur) {
-        System.out.println("L'ennemi " + this.nom + " attaque le joueur " + joueur.getNom() + ".");
+    public Ennemi(String nom, int pointsDeVie, int force, int agility, int mana, String manaSpe) {
+        super(nom, pointsDeVie, force, agility, mana, manaSpe);
     }
 
-    // Méthode d'attaque spécifique pour attaquer un autre ennemi
-    public void attaquer(Ennemi ennemi) {
-        System.out.println("L'ennemi " + this.nom + " attaque l'ennemi " + ennemi.getNom() + ".");
-    }
+    public void attaquer() {
+        System.out.println("Ennemi Attaque !");
+
 
     // Méthode de défense spécifique pour l'ennemi
     @Override

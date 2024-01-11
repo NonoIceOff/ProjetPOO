@@ -2,19 +2,53 @@ package Classes;
 
 
 public class Joueur extends Personnage {
+    private String asciiArtCharacter;
+    private String secondAttackUser;
+    // private String nom;
+    // private int pointsDeVie;
 
 
-    public Joueur(String nom, int pointsDeVie, int pointsDEsquive, int force) {
-        super(nom, pointsDeVie, pointsDEsquive, force);
+    public Joueur(String nom, int pointsDeVie, int force, String asciiArtCharacter, int mana, int agility,
+            String manaSpe) {
+        super(nom, pointsDeVie, force, agility, mana, manaSpe);
+        this.asciiArtCharacter = asciiArtCharacter;
+        this.secondAttackUser = secondAttackUser;
     }
-    // Méthode d'attaque spécifique pour attaquer un ennemi
-    public void attaquer(Ennemi ennemi) {
-        System.out.println("Le joueur " + this.nom + " attaque l'ennemi " + ennemi.getNom() + ".");
+
+    public String getAsciiArtCharacter() {
+        return asciiArtCharacter;
     }
 
-    // Méthode d'attaque spécifique pour attaquer un autre joueur
-    public void attaquer(Joueur joueur) {
-        System.out.println("Le joueur " + this.nom + " attaque le joueur " + joueur.getNom() + ".");
+    public void setAsciiArtCharacter(String asciiArtCharacter) {
+        this.asciiArtCharacter = asciiArtCharacter;
+    }
+
+    public String getnom() {
+        return asciiArtCharacter;
+    }
+
+    public void setnom(String nom) {
+        this.nom = nom;
+    }
+    public String getSecondAttackUser() {
+        return secondAttackUser;
+    }
+
+    public void setSecondAttackUser(String secondAttackUser) {
+        this.nom = secondAttackUser;
+    }
+
+    public int getpointsDeVie() {
+        return pointsDeVie;
+    }
+
+    public void setpointsDeVie(int pointsDeVie) {
+        this.pointsDeVie = pointsDeVie;
+    }
+
+    public void attaquer() {
+        System.out.println("Joueur Attaque !");
+
     }
 
     // Méthode de défense spécifique pour le joueur
@@ -27,6 +61,7 @@ public class Joueur extends Personnage {
     public void prendreObjet() {
         System.out.println("Objet utilisé");
     }
+
 
     // Méthode d'interaction spécifique pour le joueur
     @Override

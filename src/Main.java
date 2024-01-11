@@ -1,3 +1,8 @@
+
+import Classes.Arme;
+import Classes.Potion;
+import Classes.Menu;
+
 import Classes.*;
 
 import java.util.ArrayList;
@@ -5,6 +10,14 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
+
+        // menu du jeu
+        Menu myMenu = new Menu();
+        myMenu.chooseMode();
+
+        Potion potionGuerison = new Potion("Potion de guérison", 20);
+        Arme cuillere = new Arme("Cuillère", 20);
+
 
         PotionDeSoin potionGuerison = new PotionDeSoin("Potion de guérison", 20);
 
@@ -16,13 +29,16 @@ public class Main {
 
         Ennemi ennemi = new Ennemi("Antoine Daniel",50,0,1);
 
-        joueur.informations();
+        // joueur.informations();
 
-        potionGuerison.interagir(joueur);
+        // potionGuerison.interagir(joueur);
 
-        joueur.informations();
+        // joueur.informations();
 
-        cuillere.interagir(joueur);
+        // cuillere.interagir(joueur);
+
+        // joueur.informations();
+
 
         couteau.interagir(joueur);
 
