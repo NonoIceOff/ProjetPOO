@@ -1,6 +1,8 @@
 package Classes;
 
-public class Personnage {
+import java.io.Serializable;
+
+public class Personnage implements Serializable {
     protected String nom;
     protected int pointsDeVie;
     protected int pointsDEsquive;
