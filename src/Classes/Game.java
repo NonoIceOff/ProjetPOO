@@ -96,51 +96,109 @@ public class Game {
                         "                    ....   ..      ..''''.....          \n" +
                         "                                        ..........     \n" +
                         "                                           ......  ";
-        List<Boss> listBossHp = new ArrayList<Boss>();
-        // création des boss
-        Boss myBoss = new Boss("Salamèche", 2000, 200, 500, 5000, "Souffle ardent du dragon sacrée",
-                        "mange tes morts", bossCharacter);
+        List<Boss> listBossHp = new ArrayList<Boss>();       
+        List<String> listAttackBoss = new ArrayList<String>();
 
-        Boss myBoss2 = new Boss("SteveJobs", 1000, 500, 500, 700, "Control mental", "jsp", bossCharacter1);
-        Boss myBoss3 = new Boss("Steve", 10000, 500, 500, 700, "Coup de pioche", "super coup de pioche", bossCharacter2);
-        Boss myBoss4 = new Boss("TorTank", 1, 500, 500, 700, "Griffes", "Coup de tete", bossCharacter3);
+        // création des boss
+        Boss myBoss = new Boss("Salamèche", 200, 200, 500, 5000, "Souffle ardent du dragon sacrée",
+                        "mange tes morts", bossCharacter);
+        Boss myBoss2 = new Boss("SteveJobs", 200, 500, 500, 700, "Control mental", "jsp", bossCharacter1);
+        Boss myBoss3 = new Boss("Steve", 200, 500, 500, 700, "Coup de pioche", "super coup de pioche", bossCharacter2);
+        Boss myBoss4 = new Boss("TorTank", 200, 500, 500, 700, "Griffes", "Coup de tete", bossCharacter3);
 
 
         public void addBoss() {
                 listBossHp.add(myBoss);
                 listBossHp.add(myBoss2);
-                listBossHp.add(myBoss3);
+                listBossHp.add(myBoss3); 
                 listBossHp.add(myBoss4);
+                System.out.println(listBossHp);
         }
-
+        public void addAttackBoss() {
+                listAttackBoss.add(listBossHp.get(randomBoss).manaSpe);
+                listAttackBoss.add(listBossHp.get(randomBoss).superSpe);
+                System.out.println(listAttackBoss);
+        }
         Random rand = new Random();
         int randomBoss = (int) (Math.random() * 3);
+        int degatsennemies = 0;        
+        int degatsUser = 0;
+
+
+        public int addHpUser(){
+        int valueDegatsBoss = 0;
+        for (int i = 0; i <= 100; i++) {
+            valueDegatsBoss = listBossHp.get(randomBoss).pointsDeVie--;    
+        }
+        return valueDegatsBoss;
+        }
+        public int addHpBoss(int lifeUser){
+        int valueDegatsUser = 0;
+        for (int i = 0; i <= 100; i++) {
+                valueDegatsUser = lifeUser--;
+        }
+        return valueDegatsUser;
+        }
+
+       
 
         ChooseCharacter user = new ChooseCharacter();
 
-        public void showCharacter(String perso, int hpUser, String name) {
+        public void showCharacter(String perso, int hpUser, String name, String attackUser, int degatsUserToEnnemie, String secondAttackUser) {
+                addBoss();
+                addAttackBoss();
+
                 while (!isFinished) {
                 System.out.flush();
-
-                        System.out.println(name+"\n"+ hpUser +
+                        System.out.println("Nom:"+ " " + name +"\n"+"Vos hp:"+ " "  + hpUser +" "+
                                         perso + "\n1 - Dormir: 200 degats | 2 - Coup de pate: 400 degats \n 3 - Inventaire | 4 - Fuir");
-                        addBoss();
-                        System.out.println();
-                        System.out.println("Nom:"+ " " + listBossHp.get(randomBoss).nom  +"\nhp boss:" + " " + listBossHp.get(randomBoss).pointsDeVie +
+                        System.out.println("Nom:"+ " " + listBossHp.get(randomBoss).nom  +"\nhp boss:" + " " + addHpUser() +
                                         "\n"
                                         + listBossHp.get(randomBoss).boss2);
-
                         Scanner scanner3 = new Scanner(System.in);
                         int chooseAttack = scanner3.nextInt();
                         switch (chooseAttack) {
                                 case 1:
+                                System.out.println(name + " " + "utilise" + " " + attackUser);
 
+                                addHpUser();
+                                // degatsennemies = degatsUserToEnnemie;
+                                // addHpUser(degatsennemies);
                                         break;
-
+                                case 2:
+                                System.out.println(name + " " + "utilise" + " " + secondAttackUser);
+                                case 3:
+                                        System.out.println("Inventaire");
+                                        break;
+                                case 4:
+                                        isFinished = true;
+                                        break;
                                 default:
                                         break;
+                        }System.out.println(listBossHp.get(randomBoss).pointsDeVie);
+                        // attack du boss
+                        System.out.println("Le boss lance" + " " +  listAttackBoss.get(randomBoss) + "\n" );
+                        System.out.println(listBossHp.get(randomBoss).pointsDeVie);
+                        for (int i = 0; i <= 100; i++) {
+                        int valueDegatsUser = 0;
+                        valueDegatsUser = hpUser--;
                         }
-                        isFinished = true;
+                         
+                        System.out.println("sokrf");
+                        if (hpUser == 0 ||hpUser < 0) {
+                                System.out.println("vous avez perdu ");
+                                isFinished = true;
+                                Menu myMenu = new Menu();
+                                myMenu.chooseMode();
+                        }else if (addHpUser() == 0 || addHpUser() <0) {
+                        System.out.println("vous avez gagné");
+
+                        }
+                        
+                       
+                       
+
+
                 }
                 // regardec le java morpion
         }

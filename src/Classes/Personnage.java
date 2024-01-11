@@ -40,7 +40,13 @@ public class Personnage {
     public void setForce(int force) {
         this.force = force;
     }
-
+    public void setManaSpe(String manaSpe) {
+        this.manaSpe = manaSpe;
+    }
+    public String getManaSpe() {
+        return manaSpe;
+    }
+    
     public void attaquer() {
         System.out.println("Attaque !");
     }

@@ -2,14 +2,15 @@ package Classes;
 
 public class Joueur extends Personnage {
     private String asciiArtCharacter;
-    private String nom;
-    private int pointsDeVie;
-    private int force;
+    private String secondAttackUser;
+    // private String nom;
+    // private int pointsDeVie;
 
     public Joueur(String nom, int pointsDeVie, int force, String asciiArtCharacter, int mana, int agility,
             String manaSpe) {
         super(nom, pointsDeVie, force, agility, mana, manaSpe);
         this.asciiArtCharacter = asciiArtCharacter;
+        this.secondAttackUser = secondAttackUser;
     }
 
     public String getAsciiArtCharacter() {
@@ -26,6 +27,13 @@ public class Joueur extends Personnage {
 
     public void setnom(String nom) {
         this.nom = nom;
+    }
+    public String getSecondAttackUser() {
+        return secondAttackUser;
+    }
+
+    public void setSecondAttackUser(String secondAttackUser) {
+        this.nom = secondAttackUser;
     }
 
     public int getpointsDeVie() {

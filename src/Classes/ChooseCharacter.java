@@ -2,9 +2,10 @@ package Classes;
 
 import java.util.Scanner;
 
+
 public class ChooseCharacter {
 String kirby =
-                "                                '::,.\n" +
+                Colors.ANSI_PURPLE + "                                '::,.\n" +
                 "                                ;kOOOkkl\n" +
                 "                     .',;;;,'. ;OO00OOkk:\n" +
                 "                 ,lk00xk0000kxOOOOOOOOkkx\n" +
@@ -15,17 +16,17 @@ String kirby =
                 "       .:dxkOOOkxxk0KKKk;,,:OK00kdooxkxxd\n" +
                 "     ;xOOkxkkOOOO00000Kk,,,,k000OOOkkkxxx\n" +
                 "    dkOOOxxxxkkkkOOOO000OddO00OOOOkkkxxxd\n" +
-                "   .xkkkxc:;,;;:loxkkOOOOOOOOOOOkkkkxxxdd\n" +
-                "    'xxl''''''',,,,cdxkkkkkkkkkkkkxxxddd.\n" +
+                "   .xkkkxc:;,;;:loxkkOOOOOOOOOOOkkkkxxxdd\n"+ Colors.ANSI_RESET +
+                "    'xxl''''''',,,,"+ Colors.ANSI_PURPLE +"cdxkkkkkkkkkkkkxxxddd.\n" +
                 "      .'......'''''',:odxxkkkkkxxxxxddd'\n" +
                 "       ............''',codxxxxxxxdddddl.\n" +
                 "       ...............'':ldddddddood;\n" +
                 "         ..............',clooooodd      .\n" +
-                "          .............';lood.         ..\n" +
-                "            ...........             ....'\n" +
+                "          .............';lood."+ Colors.ANSI_RESET +"         ..\n" +
+                "            ..........."+Colors.ANSI_RED +"             ....'\n" +
                 "               ......        ..  ......'.\n" +
                 "                              ..''''''''\n" +
-                "                               ''''''''.\n";
+                "                               ''''''''.\n" +Colors.ANSI_RESET;
 
                
                 String carte =
@@ -74,9 +75,9 @@ String kirby =
             "    \\_______/    / \n" +
             "      \\_____/_.'  ";
 
-    Joueur character1 = new Joueur("Kirby", 10000, 2000, kirby, 10000, 100, "souffle ardent");
-    Joueur character2 = new Joueur("Carte", 1500, 2000, carte, 20, 10, "ronflement");
-    Joueur character3 = new Joueur("Ronflex", 1500, 2000, ronflex, 20, 10, "ronflement");
+    Joueur character1 = new Joueur("Kirby", 300, 100, kirby, 10000, 100, "souffle ardent");
+    Joueur character2 = new Joueur("Carte", 1500, 200, carte, 20, 10, "ronflement");
+    Joueur character3 = new Joueur("Ronflex", 1500, 250, ronflex, 20, 10, "ronflement");
 
 
     String informations = "╔══════════════════════════════╗\n" + //
@@ -109,13 +110,13 @@ String kirby =
         int chooseStarterUser = scannerChoose.nextInt();
         if (chooseStarterUser == 1) {
             System.out.println("Lancement du jeu...");
-            myGame.showCharacter(this.kirby, character1.getPointsDeVie(), character1.getNom());
+            myGame.showCharacter(this.kirby, character1.getPointsDeVie(), character1.getNom(),character1.getManaSpe(), character1.getForce(), character1.getSecondAttackUser());
         } else if (chooseStarterUser == 2) {
              System.out.println("Lancement du jeu...");
-            myGame.showCharacter(this.carte, character2.getPointsDeVie(), character2.getNom());
+            myGame.showCharacter(this.carte, character2.getPointsDeVie(), character2.getNom(), character2.getManaSpe(), character2.getForce(), character2.getSecondAttackUser());
         } else {
             System.out.println("Lancement du jeu...");
-            myGame.showCharacter(this.ronflex, character3.getPointsDeVie(), character3.getNom());
+            myGame.showCharacter(this.ronflex, character3.getPointsDeVie(), character3.getNom(), character3.getManaSpe(), character3.getForce(), character3.getSecondAttackUser());
         }
     }
 }
