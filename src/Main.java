@@ -1,14 +1,6 @@
 import Classes.*;
 
-import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.nio.file.Files;
-import java.util.Properties;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class Main {
 
@@ -51,6 +43,19 @@ public class Main {
         FileSaver fs = new FileSaver("save.txt");
         fs.save(liste);
         fs.load();
+
+        Produit prod = new Produit("cuillère",10);
+        Produit prod2 = new Produit("cuillère2",10);
+        Inventaire inv = new Inventaire();
+        inv.ajouterProduit(prod);
+        inv.ajouterProduit(prod2);
+        inv.afficherInventaire();
+        System.out.println(inv.verifierProduit("cuillère",10));
+
+        FileSaver fsInv = new FileSaver("inv.txt");
+        fsInv.save(inv.getProduits());
+        fsInv.load();
+
     }
 
 
