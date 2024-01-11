@@ -3,8 +3,6 @@ package Classes;
 public class Joueur extends Personnage {
     private String asciiArtCharacter;
     private String secondAttackUser;
-    // private String nom;
-    // private int pointsDeVie;
 
     public Joueur(String nom, int pointsDeVie, int force, String asciiArtCharacter, int mana, int agility,
             String manaSpe) {
@@ -28,6 +26,7 @@ public class Joueur extends Personnage {
     public void setnom(String nom) {
         this.nom = nom;
     }
+
     public String getSecondAttackUser() {
         return secondAttackUser;
     }
