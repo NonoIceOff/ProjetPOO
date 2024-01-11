@@ -11,8 +11,4 @@ public class Boss extends Ennemi {
         this.boss2 = boss2;
     }
 
-    public int showLife() {
-        return this.pointsDeVie;
-    }
-
 }

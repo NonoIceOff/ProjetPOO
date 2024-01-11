@@ -3,7 +3,6 @@ package Classes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import Classes.Menu;
 
 public class Shop {
     private int gold;

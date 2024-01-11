@@ -15,10 +15,6 @@ public class Main {
         Menu myMenu = new Menu();
         myMenu.chooseMode();
 
-        Potion potionGuerison = new Potion("Potion de guérison", 20);
-        Arme cuillere = new Arme("Cuillère", 20);
-
-
         PotionDeSoin potionGuerison = new PotionDeSoin("Potion de guérison", 20);
 
         Arme cuillere = new Arme("Cuillère rouillée", 2, 0);
@@ -28,17 +24,6 @@ public class Main {
         Personnage joueur = new Joueur("Héros", 50,0,1);
 
         Ennemi ennemi = new Ennemi("Antoine Daniel",50,0,1);
-
-        // joueur.informations();
-
-        // potionGuerison.interagir(joueur);
-
-        // joueur.informations();
-
-        // cuillere.interagir(joueur);
-
-        // joueur.informations();
-
 
         couteau.interagir(joueur);
 
