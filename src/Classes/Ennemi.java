@@ -7,6 +7,10 @@ public class Ennemi extends Personnage {
     }
 
     public void attaquer() {
+        /**
+         Méthode permettant d'attaquer
+         Retourne rien mais affiche un texte
+         */
         System.out.println("Ennemi Attaque !");
     }
 
@@ -19,6 +23,10 @@ public class Ennemi extends Personnage {
     // Méthode d'interaction spécifique pour l'ennemi
     @Override
     public void interagir(Personnage personnage) {
+        /**
+         Méthode permettant d'interragir avec un personnage depuis un ennemi
+         Retourne rien mais affiche un texte
+         */
         System.out.println("L'ennemi " + this.nom + " a interagi avec " + personnage.getNom() + ".");
     }
 }

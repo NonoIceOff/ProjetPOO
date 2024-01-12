@@ -126,6 +126,10 @@ public class ChooseCharacter {
 
         // afficher les informations des personnages
         public void allStarter() {
+                /**
+                 Méthode permettant d'afficher le choix de personnages
+                 Retourne rien mais afficher le choix de personnages à partir des variables de type "Joueur" de cette classe
+                 */
                 System.out.println(
                                 "Veuillez choisir un personnage: \n1 -" + character1.getAsciiArtCharacter() + " \n"
                                                 + this.informationsFirstCharacter + "\n2 -\n"
@@ -137,6 +141,10 @@ public class ChooseCharacter {
 
         // choisir le personnage starter avec le terminal
         public void chooseStarter() {
+                /**
+                 Méthode permettant au joueur de choisir son personnage
+                 Retourne rien mais récupère les inputs de clavier dans un "int" pour valider un personnage
+                 */
                 Game myGame = new Game();
                 System.out.println("Choississez un personnage:");
                 Scanner scannerChoose = new Scanner(System.in);

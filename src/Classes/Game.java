@@ -9,6 +9,10 @@ public class Game {
         public int winGoldGame = 0;
 
         public int addGold() {
+                /**
+                 Méthode permettant d'ajouter de l'argent
+                 Retourne la variable d'argent de la classe mais avec incrémentation
+                 */
                 return winGoldGame += 15;
         }
 
@@ -96,12 +100,20 @@ public class Game {
         List<String> listAttackBoss = new ArrayList<String>();
 
         public void addBoss() {
+                /**
+                 Méthode permettant d'ajouter des boss
+                 Retourne rien mais ajoute les boss dans la liste prévue à cet effet
+                 */
                 listBossHp.add(myBoss);
                 listBossHp.add(myBoss2);
                 listBossHp.add(myBoss3);
         }
 
         public void addAttackBoss() {
+                /**
+                 Méthode permettant d'ajouter les attaques des boss
+                 Retourne rien mais ajoute les attaques des boss dans la liste prévue à cet effet à l'aide de la liste des boss
+                 */
                 listAttackBoss.add(listBossHp.get(randomAttack).manaSpe);
                 listAttackBoss.add(listBossHp.get(randomAttack).superSpe);
         }
@@ -118,6 +130,10 @@ public class Game {
         // dans la classe ChooseCharacter;
         public void showCharacter(String perso, int hpUser, String name, String attackUser, int degatsUserToEnnemie,
                         String secondAttackUse, int winGold) {
+                /**
+                 Méthode permettant de jouer au jeu
+                 Retourne rien mais affiche et gère les combats
+                 */
                 addBoss();
                 addAttackBoss();
                 while (!isFinished) {
