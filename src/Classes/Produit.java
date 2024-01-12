@@ -19,6 +19,14 @@ public class Produit implements Serializable {
         this.nom = nom;
     }
 
+    public int getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
+    }
+
     public int obtenirQuantite() {
         return quantite;
     }

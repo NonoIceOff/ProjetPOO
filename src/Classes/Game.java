@@ -6,6 +6,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
+        int winGold;
+
+        // Game(int winGold) {
+        // this.winGold = winGold;
+        // }
 
         boolean isFinished = false;
         String bossCharacter = " _______________________ \n" +
@@ -73,11 +78,13 @@ public class Game {
         List<String> listAttackBoss = new ArrayList<String>();
 
         // création des boss
-        Boss myBoss = new Boss("Salamèche", 400, 200, 500, 5000, "Souffle ardent du dragon sacrée",
+        Boss myBoss = new Boss("Salamèche", 500, 400, 200, 500, 5000, "Souffle ardent du dragon sacrée",
                         "mange tes morts", bossCharacter);
-        Boss myBoss2 = new Boss("SteveJobs", 400, 500, 500, 700, "Control mental", "jsp", bossCharacter1);
+        Boss myBoss2 = new Boss("SteveJobs", 500, 400, 500, 500, 700, "Control mental", "jsp", bossCharacter1);
 
-        Boss myBoss4 = new Boss("TorTank", 400, 500, 500, 700, "Griffes", "Coup de tete", bossCharacter2);
+        Boss myBoss4 = new Boss("TorTank", 500, 400, 500, 500, 700, "Griffes", "Coup de tete", bossCharacter2);
+
+        Inventaire myInventaire = new Inventaire();
 
         // ajout des boss dans une list, pour pouvoir les générer
         // de façon aléatoire.
@@ -92,26 +99,14 @@ public class Game {
                 listAttackBoss.add(listBossHp.get(randomBoss).superSpe);
         }
 
+        public int addGold(int gold) {
+                return gold = 30;
+        }
+
         Random rand = new Random();
         int randomBoss = (int) (Math.random() * 2 + 1);
-        int degatsennemies = 0;
-        int degatsUser = 0;
-
-        public int addHpUser() {
-                int valueDegatsBoss = 0;
-                for (int i = 0; i <= 100; i++) {
-                        valueDegatsBoss = listBossHp.get(randomBoss).pointsDeVie--;// a améliorer
-                }
-                return valueDegatsBoss;
-        }
-
-        public int addHpBoss(int lifeUser) {
-                int valueDegatsUser = 0;
-                for (int i = 0; i <= 100; i++) {
-                        valueDegatsUser = lifeUser--;
-                }
-                return valueDegatsUser;
-        }
+        // int degatsennemies = 0;
+        // int degatsUser = 0;
 
         ChooseCharacter user = new ChooseCharacter();
 
@@ -132,7 +127,8 @@ public class Game {
                                         perso + attackTab + "\n");
 
                         System.out.println("Nom:" + " " + Colors.ANSI_RED + listBossHp.get(randomBoss).nom
-                                        + Colors.ANSI_RESET + "\nhp boss:" + " " + addHpUser() +
+                                        + Colors.ANSI_RESET + "\nhp boss:" + " "
+                                        + listBossHp.get(randomBoss).pointsDeVie +
                                         "\n"
                                         + listBossHp.get(randomBoss).boss2);
                         Scanner scanner3 = new Scanner(System.in);
@@ -140,12 +136,13 @@ public class Game {
                         switch (chooseAttack) {
                                 case 1:
                                         System.out.println(name + " " + "utilise" + " " + attackUser);
-                                        addHpUser();
+                                        listBossHp.get(randomBoss).pointsDeVie -= 200;
                                         break;
                                 case 2:
                                         System.out.println(name + " " + "utilise" + " " + secondAttackUser);
                                 case 3:
                                         System.out.println("Inventaire");
+                                        myInventaire.afficherInventaire();
                                         break;
                                 case 4:
                                         isFinished = true;
@@ -157,27 +154,24 @@ public class Game {
                         }
                         // attack du boss
                         System.out.println("Le boss lance" + " " + listAttackBoss.get(randomBoss) + "\n");
-                        for (int i = 0; i <= 100; i++) {
-                                int valueDegatsUser = 0;
-                                valueDegatsUser = hpUser--;
-                        }
+
+                        hpUser -= 100;
                         if (hpUser == 0 || hpUser < 0) {
                                 System.out.println("vous avez perdu ");
                                 isFinished = true;
                                 Menu myMenu = new Menu();
                                 myMenu.chooseMode();
                         } else if (listBossHp.get(randomBoss).pointsDeVie == 0
-                                        || listBossHp.get(randomBoss).pointsDeVie < 0) { // probleme avec listbosshp pas
-                                                                                         // la meme que celle afficher
-
-                                System.out.println("vous avez gagné \nvoulez vous continuer ?");
+                                        || listBossHp.get(randomBoss).pointsDeVie < 0) { //
+                                System.out.println(
+                                                "vous avez gagné, vous venez de gagnez 10 de gold \nvoulez vous continuer ?");
                                 Scanner scanner4 = new Scanner(System.in);
                                 String again = scanner4.nextLine();
                                 if (again == "non") {
                                         Menu myMenu = new Menu();
                                         myMenu.chooseMode();
                                 }
-                                listBossHp.get(randomBoss).pointsDeVie += 500;
+                                listBossHp.get(randomBoss).pointsDeVie += 1000;
                                 randomBoss = (int) (Math.random() * 3);
 
                         }

@@ -1,18 +1,18 @@
 package Classes;
 
+import java.io.Serializable;
 
 public class Personnage implements Serializable {
     protected String nom;
     protected int pointsDeVie;
+    protected int pointsDEsquive;
     protected int force;
     protected int agility;
     protected int mana;
     protected String manaSpe;
 
-    public Personnage(String nom, int pointsDeVie, int force, int agility, int mana, String manaSpe) {
-
-import java.io.Serializable;
-
+    public Personnage(String nom, int pointsDeVie, int pointsDEsquive, int force, int agility, int mana,
+            String manaSpe) {
 
         this.nom = nom;
         this.pointsDeVie = pointsDeVie;
@@ -56,10 +56,10 @@ import java.io.Serializable;
     public void setManaSpe(String manaSpe) {
         this.manaSpe = manaSpe;
     }
+
     public String getManaSpe() {
         return manaSpe;
     }
-    
 
     public void attaquer() {
         System.out.println(this.nom + " Attaque !");
@@ -98,7 +98,8 @@ import java.io.Serializable;
     // Méthode d'affichage des informations du personnage
     public void informations() {
 
-        System.out.println(this.getNom() + " a " + this.getPointsDeVie() + " points de vie, " + this.force + " de force.");
+        System.out.println(
+                this.getNom() + " a " + this.getPointsDeVie() + " points de vie, " + this.force + " de force.");
 
     }
 
