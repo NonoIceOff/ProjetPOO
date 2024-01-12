@@ -7,7 +7,7 @@ public class Joueur extends Personnage {
 
     public Joueur(String nom, int pointsDeVie, int pointsDEsquive, int force, String asciiArtCharacter, int mana,
             int agility,
-            String manaSpe) {
+            String manaSpe, String secondAttackUser) {
         super(nom, pointsDeVie, pointsDEsquive, force, agility, mana, manaSpe);
         this.asciiArtCharacter = asciiArtCharacter;
         this.secondAttackUser = secondAttackUser;
@@ -47,6 +47,14 @@ public class Joueur extends Personnage {
 
     public void setpointsDeVie(int pointsDeVie) {
         this.pointsDeVie = pointsDeVie;
+    }
+
+    public int getMana() {
+        return mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
     }
 
     // public void setGold(int gold) {

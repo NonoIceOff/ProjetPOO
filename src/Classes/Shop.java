@@ -38,7 +38,7 @@ public class Shop {
             switch (chooseNumber) {
                 case 1:
                     if (this.gold < listPricesItems.get(0)) {
-                        productHealing.getQuantite();
+                        // productHealing.getQuantite();
                         System.out.println("Vous avez acheté" + " " + productHealing.getName() + " " + "il vous reste"
                                 + " "
                                 + (this.gold - listPricesItems.get(0)) + " " + productHealing.getQuantite() + "/1");
@@ -57,26 +57,28 @@ public class Shop {
                         System.out.println("Vous ne possédez pas assez de gold");
                     }
                     break;
-                case 3:
-                    if (this.gold > listPricesItems.get(1)) {
-                        System.out.println(
-                                "Vous avez acheté" + " " + productDamage.getName() + " " + "il vous reste" + " "
-                                        + (this.gold - listPricesItems.get(1)) + " " + "/1");
-                    } else {
-                        System.out.println("Vous ne possédez pas assez de gold");
-                    }
-                    break;
-                case 4:
-                    if (this.gold > listPricesItems.get(1)) {
-                        System.out.println(
-                                "Vous avez acheté" + " " + productDamage.getName() + " " + "il vous reste" + " "
-                                        + (this.gold - listPricesItems.get(1)) + " " + "/1");
-                    } else {
-                        System.out.println("Vous ne possédez pas assez de gold");
-                    }
-                    break;
+                // case 3:
+                // if (this.gold > listPricesItems.get(1)) {
+                // System.out.println(
+                // "Vous avez acheté" + " " + productDamage.getName() + " " + "il vous reste" +
+                // " "
+                // + (this.gold - listPricesItems.get(1)) + " " + "/1");
+                // } else {
+                // System.out.println("Vous ne possédez pas assez de gold");
+                // }
+                // break;
+                // case 4:
+                // if (this.gold > listPricesItems.get(1)) {
+                // System.out.println(
+                // "Vous avez acheté" + " " + productDamage.getName() + " " + "il vous reste" +
+                // " "
+                // + (this.gold - listPricesItems.get(1)) + " " + "/1");
+                // } else {
+                // System.out.println("Vous ne possédez pas assez de gold");
+                // }
+                // break;
 
-                case 5:
+                case 3:
                     isBuy = true;
                     myMenu.chooseMode();
                     break;
@@ -95,11 +97,9 @@ public class Shop {
         System.out.println("║ Vous avez" + " " + this.gold + " " + "gold               ║");
         System.out.println("║                                 ║");
         System.out.println("║ 1." + productHealing.getName() + ": " + listPricesItems.get(0) + " gold" +
-                " " + "+" + healingPotion.getPointsDeSoin() + " " + "soin" + " "
-                + productDamage.getQuantite() + "/10║");
+                " " + "+" + healingPotion.getPointsDeSoin() + " " + "soin");
         System.out.println("║ 2." + productDamage.getName() + ": " + listPricesItems.get(1) + " gold" + " " +
-                " " + "+" + potionDamage.getpointsDeDegat() + " " + "soin" + " " + productHealing.getQuantite()
-                + "/15║");
+                " " + "+" + potionDamage.getpointsDeDegat() + " " + "soin");
         System.out.println("║                                 ║");
         System.out.println("║ 4. Back to menu:                ║");
         System.out.println("╚═════════════════════════════════╝");

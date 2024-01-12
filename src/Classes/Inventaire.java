@@ -34,6 +34,7 @@ public class Inventaire {
         }
     }
 
+    //
     public boolean verifierProduit(String nom, int quantite) {
         for (Produit product : produits) {
             if (product.getName() == nom && product.obtenirQuantite() >= quantite) {

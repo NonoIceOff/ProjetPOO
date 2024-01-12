@@ -68,11 +68,13 @@ public class ChooseCharacter {
                         "    \\_______/    / \n" +
                         "      \\_____/_.'  ";
 
-        Joueur character1 = new Joueur("Kirby", 10000, 20, 100, kirby, 10000, 100, "souffle ardent");
-        Joueur character2 = new Joueur("Carte", 1500, 20, 200, carte, 20, 10, "ronflement");
-        Joueur character3 = new Joueur("Ronflex", 1500, 20, 250, ronflex, 20, 10, "ronflement");
+        Joueur character1 = new Joueur("Kirby", 10000, 20, 200, kirby, 10000, 100, "Souffle ardent",
+                        "Attaque cannibale");
+        Joueur character2 = new Joueur("Carte", 1500, 20, 200, carte, 20, 10, "Ronflement", "Morsure");
+        Joueur character3 = new Joueur("Ronflex", 1500, 20, 250, ronflex, 20, 10, "Ronflement", "Coup de tete");
 
-        String informations = "╔══════════════════════════════╗\n" + //
+        // je sais c'est mal fait
+        String informationsFirstCharacter = "╔══════════════════════════════╗\n" + //
                         "║  Informations                ║\n" +
                         "║                              ║\n" +
                         "║Nom:" + " " + character1.getNom() + "║\n" +
@@ -81,7 +83,37 @@ public class ChooseCharacter {
                         "║                              ║\n" +
                         "║Points de vie:" + " " + character1.getPointsDeVie() + "║\n" +
                         "║                              ║\n" +
-                        "║Mana:" + " " + "                            ║\n" +
+                        "║Mana:" + " " + character1.getMana() + " ║\n" +
+                        "║                              ║\n" +
+                        "║                              ║\n" +
+                        "║                              ║\n" +
+                        "║                              ║\n" +
+                        "╚══════════════════════════════╝";
+        String informationsFirstCharacter2 = "╔══════════════════════════════╗\n" + //
+                        "║  Informations                ║\n" +
+                        "║                              ║\n" +
+                        "║Nom:" + " " + character2.getNom() + "║\n" +
+                        "║                              ║\n" +
+                        "║Force:" + " " + character2.getForce() + "║\n" +
+                        "║                              ║\n" +
+                        "║Points de vie:" + " " + character2.getPointsDeVie() + "║\n" +
+                        "║                              ║\n" +
+                        "║Mana:" + " " + character2.getMana() + "  ║\n" +
+                        "║                              ║\n" +
+                        "║                              ║\n" +
+                        "║                              ║\n" +
+                        "║                              ║\n" +
+                        "╚══════════════════════════════╝";
+        String informationsFirstCharacter3 = "╔══════════════════════════════╗\n" + //
+                        "║  Informations                ║\n" +
+                        "║                              ║\n" +
+                        "║Nom:" + " " + character2.getNom() + "║\n" +
+                        "║                              ║\n" +
+                        "║Force:" + " " + character2.getForce() + "║\n" +
+                        "║                              ║\n" +
+                        "║Points de vie:" + " " + character2.getPointsDeVie() + "║\n" +
+                        "║                              ║\n" +
+                        "║Mana:" + " " + character2.getMana() + "  ║\n" +
                         "║                              ║\n" +
                         "║                              ║\n" +
                         "║                              ║\n" +
@@ -91,9 +123,11 @@ public class ChooseCharacter {
         public void allStarter() {
                 System.out.println(
                                 "Veuillez choisir un personnage: \n1 -" + character1.getAsciiArtCharacter() + " \n"
-                                                + this.informations + "2 -\n"
-                                                + character2.getAsciiArtCharacter() + "\n" + this.informations + "3 -\n"
-                                                + character3.getAsciiArtCharacter());
+                                                + this.informationsFirstCharacter + "2 -\n"
+                                                + character2.getAsciiArtCharacter() + "\n"
+                                                + this.informationsFirstCharacter2 + "3 -\n"
+                                                + character3.getAsciiArtCharacter() + "\n"
+                                                + this.informationsFirstCharacter3);
         }
 
         public void chooseStarter() {

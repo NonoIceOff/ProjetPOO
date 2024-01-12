@@ -78,11 +78,10 @@ public class Game {
         List<String> listAttackBoss = new ArrayList<String>();
 
         // création des boss
-        Boss myBoss = new Boss("Salamèche", 500, 400, 200, 500, 5000, "Souffle ardent du dragon sacrée",
+        Boss myBoss3 = new Boss("Grumba", 500, 400, 500, 500, 700, "Griffes", "Coup de tete", bossCharacter2);
+        Boss myBoss = new Boss("Ignir", 500, 400, 200, 500, 5000, "Souffle ardent du dragon sacrée",
                         "mange tes morts", bossCharacter);
         Boss myBoss2 = new Boss("SteveJobs", 500, 400, 500, 500, 700, "Control mental", "jsp", bossCharacter1);
-
-        Boss myBoss4 = new Boss("TorTank", 500, 400, 500, 500, 700, "Griffes", "Coup de tete", bossCharacter2);
 
         Inventaire myInventaire = new Inventaire();
 
@@ -91,12 +90,14 @@ public class Game {
         public void addBoss() {
                 listBossHp.add(myBoss);
                 listBossHp.add(myBoss2);
-                listBossHp.add(myBoss4);
+                listBossHp.add(myBoss3);
+                System.out.println(listBossHp);
         }
 
         public void addAttackBoss() {
-                listAttackBoss.add(listBossHp.get(randomBoss).manaSpe);
-                listAttackBoss.add(listBossHp.get(randomBoss).superSpe);
+                listAttackBoss.add(listBossHp.get(randomAttack).manaSpe);
+                listAttackBoss.add(listBossHp.get(randomAttack).superSpe);
+                System.out.println(listAttackBoss);
         }
 
         public int addGold(int gold) {
@@ -104,7 +105,9 @@ public class Game {
         }
 
         Random rand = new Random();
-        int randomBoss = (int) (Math.random() * 2 + 1);
+        int randomBoss = (int) (Math.random() * 3 + 1);
+        int randomAttack = (int) (Math.random() * 2 + 1);
+
         // int degatsennemies = 0;
         // int degatsUser = 0;
 
@@ -114,14 +117,15 @@ public class Game {
                         String secondAttackUser) {
                 addBoss();
                 addAttackBoss();
+                System.out.println(randomBoss);
                 while (!isFinished) {
                         System.out.flush();
-                        String attackTab = "╔══════════════════════════════╗\n" +
-                                        "║1 - Dormir: 200 degats        ║\n" +
-                                        "║2 - Coup de pate: 400 degats  ║\n" +
-                                        "║3 - Inventaire                ║\n" +
-                                        "║4 - Fuir                      ║\n" +
-                                        "╚══════════════════════════════╝";
+                        String attackTab = "╔══════════════════════════════════════╗\n" +
+                                        "║1 - " + attackUser + " " + ": 200 degats       ║\n" +
+                                        "║2 - " + secondAttackUser + ": 200 degats     ║\n" +
+                                        "║3 - Inventaire                        ║\n" +
+                                        "║4 - Fuir                              ║\n" +
+                                        "╚══════════════════════════════════════╝";
                         System.out.println("Nom:" + " " + Colors.ANSI_BLUE + name + Colors.ANSI_RESET + "\n" + "Vos hp:"
                                         + " " + Colors.ANSI_GREEN + hpUser + Colors.ANSI_RESET + " " +
                                         perso + attackTab + "\n");
@@ -133,6 +137,7 @@ public class Game {
                                         + listBossHp.get(randomBoss).boss2);
                         Scanner scanner3 = new Scanner(System.in);
                         int chooseAttack = scanner3.nextInt();
+                        // system attack
                         switch (chooseAttack) {
                                 case 1:
                                         System.out.println(name + " " + "utilise" + " " + attackUser);
@@ -140,6 +145,7 @@ public class Game {
                                         break;
                                 case 2:
                                         System.out.println(name + " " + "utilise" + " " + secondAttackUser);
+                                        listBossHp.get(randomBoss).pointsDeVie -= 300;
                                 case 3:
                                         System.out.println("Inventaire");
                                         myInventaire.afficherInventaire();
@@ -153,7 +159,7 @@ public class Game {
                                         break;
                         }
                         // attack du boss
-                        System.out.println("Le boss lance" + " " + listAttackBoss.get(randomBoss) + "\n");
+                        System.out.println("Le boss lance" + " " + listAttackBoss.get(randomAttack) + "\n");
 
                         hpUser -= 100;
                         if (hpUser == 0 || hpUser < 0) {
