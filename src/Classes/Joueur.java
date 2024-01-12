@@ -3,15 +3,15 @@ package Classes;
 public class Joueur extends Personnage {
     private String asciiArtCharacter;
     private String secondAttackUser;
-    // private int gold;
+    private int gold;
 
     public Joueur(String nom, int pointsDeVie, int pointsDEsquive, int force, String asciiArtCharacter, int mana,
             int agility,
-            String manaSpe, String secondAttackUser) {
+            String manaSpe, String secondAttackUser, int gold) {
         super(nom, pointsDeVie, pointsDEsquive, force, agility, mana, manaSpe);
         this.asciiArtCharacter = asciiArtCharacter;
         this.secondAttackUser = secondAttackUser;
-        // this.gold = gold;
+        this.gold = gold;
     }
     // getters and setters
     // getters and setters
@@ -57,14 +57,14 @@ public class Joueur extends Personnage {
         this.mana = mana;
     }
 
-    // public void setGold(int gold) {
-    // this.gold = gold;
-    // }
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
 
-    // public int getGold() {
-    // return gold;
+    public int getGold() {
+        return gold;
 
-    // }
+    }
     // fin getters and setters
     // fin getters and setters
     // fin getters and setters

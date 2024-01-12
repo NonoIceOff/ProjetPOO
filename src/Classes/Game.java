@@ -6,11 +6,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
-        int winGold;
+        public int winGoldGame = 0;
 
-        // Game(int winGold) {
-        // this.winGold = winGold;
-        // }
+        public int addGold() {
+                return winGoldGame += 15;
+        }
 
         boolean isFinished = false;
         String bossCharacter = " _______________________ \n" +
@@ -50,7 +50,7 @@ public class Game {
                         "                 .............,clcldkxl. \n" +
                         "               ................:oxOOxl'.. \n";
 
-        String bossCharacter2 = " ..':;;;;'..              \n" +
+        String bossCharacter2 = "                               ..':;;;;'..              \n" +
                         "                         ..  ';:::::;;;;;,'.            \n" +
                         "                          ...,:::::;;;;;;,'....         \n" +
                         "                        .,::'.,::::;;;;,,. ..''.        \n" +
@@ -78,11 +78,13 @@ public class Game {
         List<String> listAttackBoss = new ArrayList<String>();
 
         // création des boss
-        Boss myBoss3 = new Boss("Grumba", 500, 400, 500, 500, 700, "Griffes", "Coup de tete", bossCharacter2);
+        Boss myBoss3 = new Boss("Grumba", 500, 400, 1000, 500, 700, "Griffes", "Coup de tete", bossCharacter2);
         Boss myBoss = new Boss("Ignir", 500, 400, 200, 500, 5000, "Souffle ardent du dragon sacrée",
-                        "mange tes morts", bossCharacter);
-        Boss myBoss2 = new Boss("SteveJobs", 500, 400, 500, 500, 700, "Control mental", "jsp", bossCharacter1);
+                        "Mange tes morts", bossCharacter);
+        Boss myBoss2 = new Boss("SteveJobs", 500, 400, 500, 500, 700, "Control mental", "Montée du capitalisme ",
+                        bossCharacter1);
 
+        FileSaver fsGame = new FileSaver("saveMyGame.txt");
         Inventaire myInventaire = new Inventaire();
 
         // ajout des boss dans une list, pour pouvoir les générer
@@ -91,43 +93,34 @@ public class Game {
                 listBossHp.add(myBoss);
                 listBossHp.add(myBoss2);
                 listBossHp.add(myBoss3);
-                System.out.println(listBossHp);
         }
 
         public void addAttackBoss() {
                 listAttackBoss.add(listBossHp.get(randomAttack).manaSpe);
                 listAttackBoss.add(listBossHp.get(randomAttack).superSpe);
-                System.out.println(listAttackBoss);
-        }
-
-        public int addGold(int gold) {
-                return gold = 30;
         }
 
         Random rand = new Random();
-        int randomBoss = (int) (Math.random() * 3 + 1);
-        int randomAttack = (int) (Math.random() * 2 + 1);
-
-        // int degatsennemies = 0;
-        // int degatsUser = 0;
+        int randomBoss = (int) (Math.random() * 2 + 1);
+        int randomAttack = (int) (Math.random() * 2);
 
         ChooseCharacter user = new ChooseCharacter();
 
         public void showCharacter(String perso, int hpUser, String name, String attackUser, int degatsUserToEnnemie,
-                        String secondAttackUser) {
+                        String secondAttackUse, int winGold) {
                 addBoss();
                 addAttackBoss();
                 System.out.println(randomBoss);
                 while (!isFinished) {
                         System.out.flush();
-                        String attackTab = "╔══════════════════════════════════════╗\n" +
+                        String attackTab = "\n╔══════════════════════════════════════╗\n" +
                                         "║1 - " + attackUser + " " + ": 200 degats       ║\n" +
-                                        "║2 - " + secondAttackUser + ": 200 degats     ║\n" +
+                                        "║2 - " + secondAttackUse + ": 300 degats     ║\n" +
                                         "║3 - Inventaire                        ║\n" +
                                         "║4 - Fuir                              ║\n" +
                                         "╚══════════════════════════════════════╝";
                         System.out.println("Nom:" + " " + Colors.ANSI_BLUE + name + Colors.ANSI_RESET + "\n" + "Vos hp:"
-                                        + " " + Colors.ANSI_GREEN + hpUser + Colors.ANSI_RESET + " " +
+                                        + " " + Colors.ANSI_GREEN + hpUser + Colors.ANSI_RESET + " " + "\n" +
                                         perso + attackTab + "\n");
 
                         System.out.println("Nom:" + " " + Colors.ANSI_RED + listBossHp.get(randomBoss).nom
@@ -140,18 +133,21 @@ public class Game {
                         // system attack
                         switch (chooseAttack) {
                                 case 1:
-                                        System.out.println(name + " " + "utilise" + " " + attackUser);
+                                        System.out.println("════════════════════════════════════\n" +
+                                                        name + " " + "utilise" + " " + Colors.ANSI_CYAN + attackUser
+                                                        + Colors.ANSI_RESET);
                                         listBossHp.get(randomBoss).pointsDeVie -= 200;
                                         break;
                                 case 2:
-                                        System.out.println(name + " " + "utilise" + " " + secondAttackUser);
+                                        System.out.println(Colors.ANSI_CYAN + name + " " + "utilise" + " "
+                                                        + secondAttackUse + Colors.ANSI_RESET);
                                         listBossHp.get(randomBoss).pointsDeVie -= 300;
                                 case 3:
-                                        System.out.println("Inventaire");
                                         myInventaire.afficherInventaire();
                                         break;
                                 case 4:
                                         isFinished = true;
+                                        System.out.println("Vous avez fuis pour aucune parce que vous etes nul :)");
                                         Menu myMenu = new Menu();
                                         myMenu.chooseMode();
                                         break;
@@ -159,9 +155,10 @@ public class Game {
                                         break;
                         }
                         // attack du boss
-                        System.out.println("Le boss lance" + " " + listAttackBoss.get(randomAttack) + "\n");
-
-                        hpUser -= 100;
+                        System.out.println("Le boss lance" + " " + Colors.ANSI_RED + listAttackBoss.get(randomAttack)
+                                        + Colors.ANSI_RESET + "\n");
+                        hpUser -= listBossHp.get(randomBoss).force;
+                        System.out.println("Vous avez subi des dégats");
                         if (hpUser == 0 || hpUser < 0) {
                                 System.out.println("vous avez perdu ");
                                 isFinished = true;
@@ -169,16 +166,31 @@ public class Game {
                                 myMenu.chooseMode();
                         } else if (listBossHp.get(randomBoss).pointsDeVie == 0
                                         || listBossHp.get(randomBoss).pointsDeVie < 0) { //
+                                addGold();
                                 System.out.println(
-                                                "vous avez gagné, vous venez de gagnez 10 de gold \nvoulez vous continuer ?");
+                                                "vous avez gagné, vous venez de gagnez" + " " + addGold()
+                                                                + " " + "de gold \nvoulez vous continuer ?");
                                 Scanner scanner4 = new Scanner(System.in);
-                                String again = scanner4.nextLine();
-                                if (again == "non") {
-                                        Menu myMenu = new Menu();
-                                        myMenu.chooseMode();
+                                String again1 = scanner4.nextLine();
+                                switch (again1) {
+                                        case "non":
+                                                isFinished = true;
+                                                Menu myMenu = new Menu();
+                                                myMenu.chooseMode();
+                                                break;
+                                        case "oui":
+                                                listBossHp.get(randomBoss).pointsDeVie += 1000;
+                                                randomBoss = (int) (Math.random() * 3);
+                                                break;
+                                        default:
+                                                break;
                                 }
-                                listBossHp.get(randomBoss).pointsDeVie += 1000;
-                                randomBoss = (int) (Math.random() * 3);
+                                // if (again1 == "non" && again1 == "NON") {
+
+                                // } else {
+                                // listBossHp.get(randomBoss).pointsDeVie += 1000;
+                                // randomBoss = (int) (Math.random() * 3);
+                                // }
 
                         }
                 }

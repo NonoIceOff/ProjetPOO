@@ -67,11 +67,11 @@ public class ChooseCharacter {
                         "  \\           /    /  \n" +
                         "    \\_______/    / \n" +
                         "      \\_____/_.'  ";
-
         Joueur character1 = new Joueur("Kirby", 10000, 20, 200, kirby, 10000, 100, "Souffle ardent",
-                        "Attaque cannibale");
-        Joueur character2 = new Joueur("Carte", 1500, 20, 200, carte, 20, 10, "Ronflement", "Morsure");
-        Joueur character3 = new Joueur("Ronflex", 1500, 20, 250, ronflex, 20, 10, "Ronflement", "Coup de tete");
+                        "Attaque cannibale", 0);
+        Joueur character2 = new Joueur("Carte", 1500, 20, 200, carte, 20, 10, "Ronflement", "Morsure", 0);
+        Joueur character3 = new Joueur("Ronflex", 1500, 20, 250, ronflex, 20, 10, "Ronflement", "Coup de tete",
+                        0);
 
         // je sais c'est mal fait
         String informationsFirstCharacter = "╔══════════════════════════════╗\n" + //
@@ -123,9 +123,9 @@ public class ChooseCharacter {
         public void allStarter() {
                 System.out.println(
                                 "Veuillez choisir un personnage: \n1 -" + character1.getAsciiArtCharacter() + " \n"
-                                                + this.informationsFirstCharacter + "2 -\n"
+                                                + this.informationsFirstCharacter + "\n2 -\n"
                                                 + character2.getAsciiArtCharacter() + "\n"
-                                                + this.informationsFirstCharacter2 + "3 -\n"
+                                                + this.informationsFirstCharacter2 + "\n3 -\n"
                                                 + character3.getAsciiArtCharacter() + "\n"
                                                 + this.informationsFirstCharacter3);
         }
@@ -139,17 +139,17 @@ public class ChooseCharacter {
                         System.out.println("Lancement du jeu...");
                         myGame.showCharacter(this.kirby, character1.getPointsDeVie(), character1.getNom(),
                                         character1.getManaSpe(),
-                                        character1.getForce(), character1.getSecondAttackUser());
+                                        character1.getForce(), character1.getSecondAttackUser(), character1.getGold());
                 } else if (chooseStarterUser == 2) {
                         System.out.println("Lancement du jeu...");
                         myGame.showCharacter(this.carte, character2.getPointsDeVie(), character2.getNom(),
                                         character2.getManaSpe(),
-                                        character2.getForce(), character2.getSecondAttackUser());
+                                        character2.getForce(), character2.getSecondAttackUser(), character1.getGold());
                 } else {
                         System.out.println("Lancement du jeu...");
                         myGame.showCharacter(this.ronflex, character3.getPointsDeVie(), character3.getNom(),
                                         character3.getManaSpe(), character3.getForce(),
-                                        character3.getSecondAttackUser());
+                                        character3.getSecondAttackUser(), character1.getGold());
                 }
         }
 }
