@@ -32,8 +32,9 @@ public class Shop {
     // ajoute les valeurs dans le tableau
     public void addListItem() {
         /**
-         Méthode permettant d'ajouter les valeurs dans le tableau
-         Retourne rien mais ajoute des choses dans des listes dans l'instance de la classe
+         * Méthode permettant d'ajouter les valeurs dans le tableau
+         * Retourne rien mais ajoute des choses dans des listes dans l'instance de la
+         * classe
          */
         listPricesItems.add(healingPotion.getprice());
         listPricesItems.add(potionDamage.getprice());
@@ -49,8 +50,8 @@ public class Shop {
     // systeme de paiment
     public int buyItems() {
         /**
-         Méthode permettant d'acheter un produit
-         Retourne rien mais gère l'achat d'un produit
+         * Méthode permettant d'acheter un produit
+         * Retourne rien mais gère l'achat d'un produit
          */
         while (!isBuy) {
             System.out.println("Choose:");
@@ -113,8 +114,8 @@ public class Shop {
     // montre la boutique
     public void shopItems() {
         /**
-         Méthode permettant d'afficher la boutique
-         Retourne rien mais affiche la boutique
+         * Méthode permettant d'afficher la boutique
+         * Retourne rien mais affiche la boutique
          */
         System.out.println("╔═══════════════════════════════════════════╗");
         System.out.println("║         Boutique                          ║");
@@ -125,8 +126,10 @@ public class Shop {
                 " " + "+" + healingPotion.getPointsDeSoin() + " " + "soin" + "         ║");
         System.out.println("║ 2." + productDamage.getName() + ": " + listPricesItems.get(1) + " gold" + " " +
                 " " + "+" + potionDamage.getpointsDeDegat() + " " + "soin" + "      ║");
-        System.out.println("║ 3." + sword.getName() + ": " + "║\n║" + listPricesItems.get(2) + " " + "gold" + " " + "+"
-                + sword.getPointsDeDegat() + " " + "dégats" + "║");
+        System.out
+                .println(
+                        "║ 3." + sword.getName() + ": " + "    ║\n║" + listPricesItems.get(2) + " " + "gold" + " " + "+"
+                                + sword.getPointsDeDegat() + " " + "dégats" + "                       ║");
         System.out.println(
                 "║ 4." + productScythe.getName() + ": " + listPricesItems.get(3) + " " + "gold " + "+"
                         + scythe.getPointsDeDegat() + " " + "dégats      ║");

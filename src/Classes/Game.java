@@ -10,8 +10,8 @@ public class Game {
 
         public int addGold() {
                 /**
-                 Méthode permettant d'ajouter de l'argent
-                 Retourne la variable d'argent de la classe mais avec incrémentation
+                 * Méthode permettant d'ajouter de l'argent
+                 * Retourne la variable d'argent de la classe mais avec incrémentation
                  */
                 return winGoldGame += 15;
         }
@@ -101,8 +101,8 @@ public class Game {
 
         public void addBoss() {
                 /**
-                 Méthode permettant d'ajouter des boss
-                 Retourne rien mais ajoute les boss dans la liste prévue à cet effet
+                 * Méthode permettant d'ajouter des boss
+                 * Retourne rien mais ajoute les boss dans la liste prévue à cet effet
                  */
                 listBossHp.add(myBoss);
                 listBossHp.add(myBoss2);
@@ -111,8 +111,9 @@ public class Game {
 
         public void addAttackBoss() {
                 /**
-                 Méthode permettant d'ajouter les attaques des boss
-                 Retourne rien mais ajoute les attaques des boss dans la liste prévue à cet effet à l'aide de la liste des boss
+                 * Méthode permettant d'ajouter les attaques des boss
+                 * Retourne rien mais ajoute les attaques des boss dans la liste prévue à cet
+                 * effet à l'aide de la liste des boss
                  */
                 listAttackBoss.add(listBossHp.get(randomAttack).manaSpe);
                 listAttackBoss.add(listBossHp.get(randomAttack).superSpe);
@@ -131,8 +132,8 @@ public class Game {
         public void showCharacter(String perso, int hpUser, String name, String attackUser, int degatsUserToEnnemie,
                         String secondAttackUse, int winGold) {
                 /**
-                 Méthode permettant de jouer au jeu
-                 Retourne rien mais affiche et gère les combats
+                 * Méthode permettant de jouer au jeu
+                 * Retourne rien mais affiche et gère les combats
                  */
                 addBoss();
                 addAttackBoss();
@@ -187,8 +188,8 @@ public class Game {
                         // system attaque du boss
                         System.out.println("Le boss lance" + " " + Colors.ANSI_RED + listAttackBoss.get(randomAttack)
                                         + Colors.ANSI_RESET + "\n");
-                        hpUser -= listBossHp.get(randomBoss).force;
-                        System.out.println("Vous avez subi des dégats");
+                        listBossHp.get(randomBoss).force += 200;
+                        System.out.println("Vous avez subi des dégats\n");
                         // system attaque du boss
 
                         // condition si win ou loose
@@ -200,6 +201,8 @@ public class Game {
                         } else if (listBossHp.get(randomBoss).pointsDeVie == 0
                                         || listBossHp.get(randomBoss).pointsDeVie < 0) { //
                                 addGold();
+                                System.out.println("Le boss" + " " + listBossHp.get(randomBoss).nom
+                                                + "a succombé a vos attaques");
                                 System.out.println(
                                                 "vous avez gagné, vous venez de gagnez" + " " + addGold()
                                                                 + " " + "de gold \nvoulez vous continuer ?");
