@@ -16,7 +16,7 @@ public class Menu {
 
     public void chooseMode() {
         Scanner scanner = new Scanner(System.in);
-        Shop myShop = new Shop(30);
+        Shop myShop = new Shop();
         Menu myMenu = new Menu();
         myMenu.menu();
         ChooseCharacter myCharacter = new ChooseCharacter();

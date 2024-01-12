@@ -10,10 +10,13 @@ public class Arme extends ObjetDuJeu implements Interactuable {
         this.degatsDeForce = degatsDeForce;
     }
 
-    // Méthode d'interaction avec un personnage (implémentation de l'interface Interactuable)
+    // ? degat de force ??
+    // Méthode d'interaction avec un personnage (implémentation de l'interface
+    // Interactuable)
     @Override
     public void interagir(Personnage attaquerPersonnage) {
         attaquerPersonnage.changerPointsDeVie(-degats);
-        System.out.println(attaquerPersonnage.getNom() + " s'est pris " + degats + " dégâts de vie mais également " + degatsDeForce + " dégâts de force à cause de " + this.nom + ".");
+        System.out.println(attaquerPersonnage.getNom() + " s'est pris " + degats + " dégâts de vie mais également "
+                + degatsDeForce + " dégâts de force à cause de " + this.nom + ".");
     }
 }
