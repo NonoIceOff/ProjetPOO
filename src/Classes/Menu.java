@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Menu {
 
+    // designe du menu
     public void menu() {
         System.out.println("╔════════════════════════╗");
         System.out.println("║         Menu           ║");
@@ -14,6 +15,7 @@ public class Menu {
         System.out.println("╚════════════════════════╝");
     }
 
+    // choisir une action depuis le menu
     public void chooseMode() {
         Scanner scanner = new Scanner(System.in);
         Shop myShop = new Shop();

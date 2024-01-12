@@ -4,6 +4,7 @@ import java.util.Scanner;
 import Classes.Colors;
 
 public class ChooseCharacter {
+        // différents perso, que l'utilisateur peut chosir
         String kirby = Colors.ANSI_PURPLE + "                                '::,.\n" +
                         "                                ;kOOOkkl\n" +
                         "                     .',;;;,'. ;OO00OOkk:\n" +
@@ -67,6 +68,8 @@ public class ChooseCharacter {
                         "  \\           /    /  \n" +
                         "    \\_______/    / \n" +
                         "      \\_____/_.'  ";
+        // creation des instances
+
         Joueur character1 = new Joueur("Kirby", 10000, 20, 200, kirby, 10000, 100, "Souffle ardent",
                         "Attaque cannibale", 0);
         Joueur character2 = new Joueur("Carte", 1500, 20, 200, carte, 20, 10, "Ronflement", "Morsure", 0);
@@ -74,6 +77,7 @@ public class ChooseCharacter {
                         0);
 
         // je sais c'est mal fait
+        // represente les caractéristique des différents perso
         String informationsFirstCharacter = "╔══════════════════════════════╗\n" + //
                         "║  Informations                ║\n" +
                         "║                              ║\n" +
@@ -120,6 +124,7 @@ public class ChooseCharacter {
                         "║                              ║\n" +
                         "╚══════════════════════════════╝";
 
+        // afficher les informations des personnages
         public void allStarter() {
                 System.out.println(
                                 "Veuillez choisir un personnage: \n1 -" + character1.getAsciiArtCharacter() + " \n"
@@ -130,6 +135,7 @@ public class ChooseCharacter {
                                                 + this.informationsFirstCharacter3);
         }
 
+        // choisir le personnage starter avec le terminal
         public void chooseStarter() {
                 Game myGame = new Game();
                 System.out.println("Choississez un personnage:");

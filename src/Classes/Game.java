@@ -13,6 +13,8 @@ public class Game {
         }
 
         boolean isFinished = false;
+        // represents les différents boss du jeu
+        // represents les différents boss du jeu
         String bossCharacter = " _______________________ \n" +
                         "< Salut je suis le boss >\n" +
                         " ----------------------- \n" +
@@ -74,21 +76,25 @@ public class Game {
                         "                    ....   ..      ..''''.....          \n" +
                         "                                        ..........     \n" +
                         "                                           ......  ";
-        List<Boss> listBossHp = new ArrayList<Boss>();
-        List<String> listAttackBoss = new ArrayList<String>();
+        // represents les différents boss du jeu
+        // represents les différents boss du jeu
 
+        // création des boss
         // création des boss
         Boss myBoss3 = new Boss("Grumba", 500, 400, 1000, 500, 700, "Griffes", "Coup de tete", bossCharacter2);
         Boss myBoss = new Boss("Ignir", 500, 400, 200, 500, 5000, "Souffle ardent du dragon sacrée",
                         "Mange tes morts", bossCharacter);
         Boss myBoss2 = new Boss("SteveJobs", 500, 400, 500, 500, 700, "Control mental", "Montée du capitalisme ",
                         bossCharacter1);
-
+        // sauvegarde de la partie
         FileSaver fsGame = new FileSaver("saveMyGame.txt");
         Inventaire myInventaire = new Inventaire();
 
-        // ajout des boss dans une list, pour pouvoir les générer
-        // de façon aléatoire.
+        // ajoute les boss dans un tableau pour pouvoir les générer aléatoirement
+        // ajoute les boss dans un tableau pour pouvoir les générer aléatoirement
+        List<Boss> listBossHp = new ArrayList<Boss>();
+        List<String> listAttackBoss = new ArrayList<String>();
+
         public void addBoss() {
                 listBossHp.add(myBoss);
                 listBossHp.add(myBoss2);
@@ -100,18 +106,22 @@ public class Game {
                 listAttackBoss.add(listBossHp.get(randomAttack).superSpe);
         }
 
+        // création d'un index alétoirement pour générer l'aléatoire
         Random rand = new Random();
         int randomBoss = (int) (Math.random() * 2 + 1);
         int randomAttack = (int) (Math.random() * 2);
 
         ChooseCharacter user = new ChooseCharacter();
 
+        // boucle du jeu, prend en paramètre les différentes caractéristique du joueur
+        // choisi
+        // dans la classe ChooseCharacter;
         public void showCharacter(String perso, int hpUser, String name, String attackUser, int degatsUserToEnnemie,
                         String secondAttackUse, int winGold) {
                 addBoss();
                 addAttackBoss();
-                System.out.println(randomBoss);
                 while (!isFinished) {
+                        // représente l'interface
                         System.out.flush();
                         String attackTab = "\n╔══════════════════════════════════════╗\n" +
                                         "║1 - " + attackUser + " " + ": 200 degats       ║\n" +
@@ -128,9 +138,11 @@ public class Game {
                                         + listBossHp.get(randomBoss).pointsDeVie +
                                         "\n"
                                         + listBossHp.get(randomBoss).boss2);
+                        // représente l'interface
+
                         Scanner scanner3 = new Scanner(System.in);
                         int chooseAttack = scanner3.nextInt();
-                        // system attack
+                        // system attaque de l'utilisateur
                         switch (chooseAttack) {
                                 case 1:
                                         System.out.println("════════════════════════════════════\n" +
@@ -154,11 +166,16 @@ public class Game {
                                 default:
                                         break;
                         }
-                        // attack du boss
+                        // system attaque de l'utilisateur
+
+                        // system attaque du boss
                         System.out.println("Le boss lance" + " " + Colors.ANSI_RED + listAttackBoss.get(randomAttack)
                                         + Colors.ANSI_RESET + "\n");
                         hpUser -= listBossHp.get(randomBoss).force;
                         System.out.println("Vous avez subi des dégats");
+                        // system attaque du boss
+
+                        // condition si win ou loose
                         if (hpUser == 0 || hpUser < 0) {
                                 System.out.println("vous avez perdu ");
                                 isFinished = true;
@@ -185,14 +202,9 @@ public class Game {
                                         default:
                                                 break;
                                 }
-                                // if (again1 == "non" && again1 == "NON") {
-
-                                // } else {
-                                // listBossHp.get(randomBoss).pointsDeVie += 1000;
-                                // randomBoss = (int) (Math.random() * 3);
-                                // }
-
                         }
+                        // condition si win ou loose
+
                 }
 
         }

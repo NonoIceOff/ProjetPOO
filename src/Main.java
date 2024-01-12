@@ -15,25 +15,6 @@ public class Main {
         Menu myMenu = new Menu();
         myMenu.chooseMode();
 
-        // PotionDeSoin potionGuerison = new PotionDeSoin("Potion de guérison", 20);
-
-        Arme cuillere = new Arme("Cuillère rouillée", 2, 0);
-        Arme couteau = new Arme("Couteau", 20, 0);
-        Arme couteauSang = new Arme("Couteau ensanglanté", 21, 0);
-
-        // Personnage joueur = new Joueur("Héros", 50, 0, 1);
-
-        // Ennemi ennemi = new Ennemi("Antoine Daniel", 50, 0, 1);
-
-        // couteau.interagir(joueur);
-
-        // joueur.informations();
-
-        // ennemi.interagir(joueur);
-        // joueur.interagir(ennemi);
-
-        // joueur.attaquer();
-
         // Faire une liste pour ensuite le sauvegarder sur le fs (remplacer le Int par
         // le type de classe)
         ArrayList<Integer> liste = new ArrayList<>();

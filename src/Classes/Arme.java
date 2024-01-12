@@ -3,14 +3,35 @@ package Classes;
 public class Arme extends ObjetDuJeu implements Interactuable {
     private int degats;
     private int degatsDeForce;
+    private int price;
 
-    public Arme(String nom, int degats, int degatsDeForce) {
+    public Arme(String nom, int degats, int degatsDeForce, int price) {
         super(nom);
         this.degats = degats;
         this.degatsDeForce = degatsDeForce;
+        this.price = price;
     }
 
-    // ? degat de force ??
+    public void setPointDeDegats(int degats) {
+        this.degats = degats;
+    }
+
+    public int getPointsDeDegat() {
+        return degats;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getprice() {
+        return price;
+    }
+
+    public String getName() {
+        return super.nom;
+    }
+
     // Méthode d'interaction avec un personnage (implémentation de l'interface
     // Interactuable)
     @Override
