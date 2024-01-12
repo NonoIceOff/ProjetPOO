@@ -7,6 +7,9 @@ import java.io.ObjectOutputStream;
 public class SauvegardeFichiers {
 
     public void save(Object objet) {
+        /**
+         Méthode non utilisée
+         */
         // Sauvegarde
         try{
             FileOutputStream fileOutputStream = new FileOutputStream("test.txt");

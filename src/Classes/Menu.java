@@ -6,6 +6,10 @@ public class Menu {
 
     // designe du menu
     public void menu() {
+        /**
+         Méthode permettant d'afficher le menu
+         Retourne rien mais affiche ligne par ligne le menu
+         */
         System.out.println("╔════════════════════════╗");
         System.out.println("║         Menu           ║");
         System.out.println("╠════════════════════════╣");
@@ -17,6 +21,10 @@ public class Menu {
 
     // choisir une action depuis le menu
     public void chooseMode() {
+        /**
+         Méthode permettant de chosir une action depuis le menu
+         Retourne rien mais gère les inputs du menu et effectue une action
+         */
         Scanner scanner = new Scanner(System.in);
         Shop myShop = new Shop();
         Menu myMenu = new Menu();

@@ -31,6 +31,10 @@ public class Shop {
 
     // ajoute les valeurs dans le tableau
     public void addListItem() {
+        /**
+         Méthode permettant d'ajouter les valeurs dans le tableau
+         Retourne rien mais ajoute des choses dans des listes dans l'instance de la classe
+         */
         listPricesItems.add(healingPotion.getprice());
         listPricesItems.add(potionDamage.getprice());
         listPricesItems.add(sword.getprice());
@@ -44,6 +48,10 @@ public class Shop {
 
     // systeme de paiment
     public int buyItems() {
+        /**
+         Méthode permettant d'acheter un produit
+         Retourne rien mais gère l'achat d'un produit
+         */
         while (!isBuy) {
             System.out.println("Choose:");
             Scanner scanner2 = new Scanner(System.in);
@@ -104,6 +112,10 @@ public class Shop {
 
     // montre la boutique
     public void shopItems() {
+        /**
+         Méthode permettant d'afficher la boutique
+         Retourne rien mais affiche la boutique
+         */
         System.out.println("╔═══════════════════════════════════════════╗");
         System.out.println("║         Boutique                          ║");
         System.out.println("╠═══════════════════════════════════════════╣");
